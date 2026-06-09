@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Amazon...</title>
+</head>
+<body>
+  <p style="font-family:sans-serif;text-align:center;margin-top:20%">
+    Redirecting you to Amazon...
+  </p>
+  <script>
+    fetch("https://ipapi.co/json/")
+      .then(r => r.json())
+      .then(data => {
+        if (data.country_code === "IN") {
+          window.location.href = "https://www.amazon.in/SyncPen3-Digital-Notebook-Pen-Set/dp/B0F5P2186C/ref=sr_1_3?crid=3F20KJBJE8CLL&dib=eyJ2IjoiMSJ9.eMN8rtt6ohx2dKFZSdNayVWjeKKVDHbVwiXpXp3xfHIHMcjWZcH919kH7N0RHS1nV1d0KcWjhyOE-dXuU2y-vaZZXIZ1dpHcL2wK50u3jzm0FHiTYA5pThCQosn6p40S2of6FXealFg3VJzM2QuOQN4zuwkrAcrlN7CmshXEUkgrKwWcJqrwBCXz1d91CORXugS3varfbSVmI5lhQ4OzYwlvgqi1-ELJmykLTqUnK0.8Kc1nfubKSEP7gJTDQ9wkj-oVoTCCkQDHT5A17yPp9k&dib_tag=se&keywords=syncpen&qid=1780999928&sprefix=syncpen+%2Caps%2C311&sr=8-3#customerReviews";
+        } else {
+          window.location.href = "https://www.amazon.com/SyncPen-Digital-Notebook-Pen-Set/dp/B0F5P2186C/ref=sr_1_1?crid=17XHS6L73CPZ5&dib=eyJ2IjoiMSJ9.X4fcE7SOFfcKnDCB0LWEQ0Cjilb4DzFvUdnzqQIQcr46YBFpyEszmGZFVSImvpPs3idPoFEzwuRYpwopni1oQh7eeZ0tZKXMtlRlDV8j4L59t3XWW0VPDsjcGdWfENqaP_-y0gEQPNKrH-uy6OUsM-5pDVCjktDvqC7waemipXkiD8SGNC7BAy1UsQjBU0LCXoyAYyA8iXn_rk6X0g9o9nufeQfc51g0RgjXKi8yWbc.1RGHL40xXYYCaYEPhZrduBmqtgKYk7enWlrXGpfMIfs&dib_tag=se&keywords=syncpen&qid=1781000102&sprefix=syncpe%2Caps%2C322&sr=8-1&xpid=dcCIKfWcYaxMe#customerReviews";
+        }
+      })
+      .catch(() => {
+        // Fallback if geolocation API fails
+        window.location.href = "https://www.amazon.com/SyncPen-Digital-Notebook-Pen-Set/dp/B0F5P2186C/ref=sr_1_1?crid=17XHS6L73CPZ5&dib=eyJ2IjoiMSJ9.X4fcE7SOFfcKnDCB0LWEQ0Cjilb4DzFvUdnzqQIQcr46YBFpyEszmGZFVSImvpPs3idPoFEzwuRYpwopni1oQh7eeZ0tZKXMtlRlDV8j4L59t3XWW0VPDsjcGdWfENqaP_-y0gEQPNKrH-uy6OUsM-5pDVCjktDvqC7waemipXkiD8SGNC7BAy1UsQjBU0LCXoyAYyA8iXn_rk6X0g9o9nufeQfc51g0RgjXKi8yWbc.1RGHL40xXYYCaYEPhZrduBmqtgKYk7enWlrXGpfMIfs&dib_tag=se&keywords=syncpen&qid=1781000102&sprefix=syncpe%2Caps%2C322&sr=8-1&xpid=dcCIKfWcYaxMe#customerReviews";
+      });
+  </script>
+</body>
+</html>
