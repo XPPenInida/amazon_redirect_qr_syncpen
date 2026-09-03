@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Amazon...</title>
+</head>
+<body>
+  <p style="font-family:sans-serif;text-align:center;margin-top:20%">
+    Redirecting you to Amazon...
+  </p>
+  <script>
+    fetch("https://ipapi.co/json/")
+      .then(r => r.json())
+      .then(data => {
+        if (data.country_code === "IN") {
+          window.location.href = "https://www.amazon.in/dp/B0HDSN7GHS";
+        } else {
+          window.location.href = "https://www.amazon.com";
+        }
+      })
+      .catch(() => {
+        window.location.href = "https://www.amazon.com";
+      });
+  </script>
+</body>
+</html>
