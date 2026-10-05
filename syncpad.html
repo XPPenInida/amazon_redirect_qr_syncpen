@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting to Amazon...</title>
+</head>
+<body>
+  <p style="font-family:sans-serif;text-align:center;margin-top:20%">
+    Redirecting you to Amazon...
+  </p>
+  <script>
+    // Fill these in once SyncPad is listed. Until then, everyone goes to FALLBACK.
+    const ASIN_IN = "";                       // SyncPad ASIN on amazon.in, e.g. "B0XXXXXXXX"
+    const ASIN_US = "";                       // SyncPad ASIN on amazon.com, if it is sold there
+    const FALLBACK = "https://www.syncpen.co";
+
+    // Opens Amazon's "write a review" page for the product (the shopper signs in if needed).
+    const review = (domain, asin) => `https://www.${domain}/review/create-review?asin=${asin}`;
+    const IN = ASIN_IN ? review("amazon.in", ASIN_IN) : FALLBACK;
+    const US = ASIN_US ? review("amazon.com", ASIN_US) : FALLBACK;
+
+    fetch("https://ipapi.co/json/")
+      .then(r => r.json())
+      .then(data => { window.location.href = data.country_code === "IN" ? IN : US; })
+      // Most buyers are in India, so if the location lookup fails, send them to amazon.in.
+      .catch(() => { window.location.href = IN; });
+  </script>
+</body>
+</html>
